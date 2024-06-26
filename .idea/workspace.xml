@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="92ea8078-b781-41a6-86e5-040efe964720" name="Changes" comment="ahaa">
+    <list default="true" id="92ea8078-b781-41a6-86e5-040efe964720" name="Changes" comment="complete">
+      <change afterPath="$PROJECT_DIR$/LAB 1/output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LAB 1/Task 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/LAB 1/Task 1.py" afterDir="false" />
     </list>
@@ -96,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719400241250</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="complete">
+      <created>1719407764194</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719407764194</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -112,6 +120,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ahaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="ahaa" />
+    <MESSAGE value="complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete" />
   </component>
 </project>
