@@ -42,7 +42,7 @@ with open('input_file.txt') as file:
         heuristic_update(all_info)
         create_graph(all_info)
 
-    # print(graph)
+
 start=input("Enter start :")
 end=input("Enter End :")
 ans=AstarAlgo(start,end)
