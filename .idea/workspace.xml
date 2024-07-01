@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92ea8078-b781-41a6-86e5-040efe964720" name="Changes" comment="complete">
-      <change afterPath="$PROJECT_DIR$/Lab 2/Task 1/Task 1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LAB 1/Task 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/LAB 1/Task 1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab 2/Task 1/Task 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab 2/Task 1/Task 1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
