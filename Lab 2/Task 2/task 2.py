@@ -39,12 +39,14 @@ def create_population(n,t,population_size):
 def parents_selection(population):
     return random.choice(population),random.choice(population)
 def crossover(parent1,parent2,N,T):
-    point=random.randint(0,N*T-1)
-    child1=parent1[0:point]+parent2[point:]
-    child2=parent2[0:point]+parent1[point:]
+    point=random.randint(0,N*T-2)
+    point2=random.randint(point+1,N*T-1)
+    child1=parent1[0:point]+parent2[point:point2]+parent1[point2:]
+    child2=parent2[0:point]+parent1[point:point2]+parent2[point2:]
     return child1,child2
 def mutation(child,N,T):
     point=random.randint(1,N*T-1)
+
     list1=list(child)
     # print(list1)
     if list1[point]=="1":
