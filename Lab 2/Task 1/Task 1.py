@@ -77,10 +77,10 @@ def genetic_algo(N,T,population_size,iterations):
     return lowest_fitness,best_slot
 
 
-N,T=int(input("Enter N: ")),int(input("Enter T:"))
+N,T=int(input("Enter Num_of_Courses: ")),int(input("Enter TimeSlots:"))
 courses=[input("Enter courses: ") for i in range(N)]
 if T<N:
-    print("T can't be less than N")
+    print("TimeSlots can't be less than Num_of_Courses")
 else:
     fitness,schedule=genetic_algo(N,T,population_size=100,iterations=1000)
     print(schedule)
