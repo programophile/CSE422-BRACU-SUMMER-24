@@ -1,27 +1,27 @@
 import math
 import random
-def alpha_beta(depth, node_index, maximizer, leaf_tree, alpha, beta):
+def AB_algo(depth, node_index, maximizer, leaf_tree, alpha, beta):
     if depth == 5:
         return leaf_tree[node_index]
 
     if maximizer:
-        max_eval = float('-inf')
-        for i in range(2):
-            A_chk =alpha_beta(depth + 1, node_index * 2 + i, False, leaf_tree, alpha, beta)
-            max_eval = max(max_eval, A_chk)
-            alpha = max(alpha, A_chk)
+        maximum_value = -math.inf
+        for iteration in range(2):
+            maximized =AB_algo(depth + 1, node_index * 2 + iteration, False, leaf_tree, alpha, beta)
+            maximum_value = max(maximum_value, maximized)
+            alpha = max(alpha, maximized)
             if beta <= alpha:
                 break
-        return max_eval
+        return maximum_value
     else:
-        min_eval = float('inf')
-        for i in range(2):
-            B_chk = alpha_beta(depth + 1, node_index * 2 + i, True, leaf_tree, alpha, beta)
-            min_eval = min(min_eval, B_chk)
-            beta = min(beta, B_chk)
+        minimum_value = math.inf
+        for iteration in range(2):
+            minimized = AB_algo(depth + 1, node_index * 2 + iteration, True, leaf_tree, alpha, beta)
+            minimum_value = min(minimum_value, minimized)
+            beta = min(beta, minimized)
             if beta <= alpha:
                 break
-        return min_eval
+        return minimum_value
 
 
 def game(player1=int(input("Enter player no:")),depth=5):
@@ -39,27 +39,30 @@ def game(player1=int(input("Enter player no:")),depth=5):
     round_winner_arr=[]
     alpha_inital=-math.inf
     beta_initial=math.inf
-    for i in range(3):
-        tree = [random.choice([-1, 1]) for _ in range(2 ** depth)]
+    for _ in range(3):
+        game_tree = []
+        for _ in range(2 ** depth):
+            value = random.choice([-1, 1])
+            game_tree.append(value)
         # print(1)
         if player==1:
-            round_winner=alpha_beta(depth,0,player,tree,alpha_inital,beta_initial)
+            winnin_player=AB_algo(depth,0,player,game_tree,alpha_inital,beta_initial)
 
         elif player==0:
-            round_winner = alpha_beta(depth, 0, player, tree, alpha_inital, beta_initial)
+            winnin_player = AB_algo(depth, 0, player, game_tree, alpha_inital, beta_initial)
 
-        if round_winner==1:
+        if winnin_player==1:
             round_winner_arr.append("subzero")
             winner_arr[1] += 1
 
-        elif round_winner==-1:
+        elif winnin_player==-1:
             round_winner_arr.append("socrpian")
             winner_arr[0] += 1
 
         # print(round_winner_arr)
         player= not player
         # print(player)
-    print(winner_arr)
+    # print(winner_arr)
     if winner_arr[0]>winner_arr[1]:
         print("Game winner: Sorpion")
     else:

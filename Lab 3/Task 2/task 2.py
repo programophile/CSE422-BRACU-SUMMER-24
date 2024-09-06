@@ -1,33 +1,34 @@
 import math
 
 
-def alpha_beta(node,depth,alpha,beta,max_player):
-    if depth==0:
+def ab_Game_algo(node,depth_of_the_tree,alpha,beta,max_player_flag):
+    if depth_of_the_tree==0:
         return node.value
-    if max_player:
-        max_value = -math.inf
-        for child in node.child:
-            value = alpha_beta(child, depth - 1, alpha, beta, False)
-            max_value = max(max_value, value)
+    if max_player_flag:
+        maximum_value = -math.inf
+        for i in node.child:
+            value = ab_Game_algo(i, depth_of_the_tree - 1, alpha, beta, False)
+            maximum_value = max(maximum_value, value)
             alpha = max(alpha, value)
             if beta <= alpha:
                 break
-        return max_value
+        return maximum_value
     else:
-        min_value = math.inf
-        for child in node.child:
-            value = alpha_beta(child, depth - 1, alpha, beta, True)
-            min_value = min(min_value, value)
+        minimum_value = math.inf
+        for j in node.child:
+            value = ab_Game_algo(j, depth_of_the_tree - 1, alpha, beta, True)
+            minimum_value = min(minimum_value, value)
             beta = min(beta, value)
             if beta <= alpha:
                 break
-        return min_value
+        return minimum_value
 class NodeClass:
-    def __init__(self,val,child=[]):
-        self.value=val
-        self.child=child
+    def __init__(self,value_of_node,child_node=[]):
+        self.value=value_of_node
+        self.child=child_node
 def pacman_game(c):
     given_values=[3, 6, 2, 3, 7, 1, 2, 0]
+
     leafs=[]
     for val in given_values:
         leafs.append(NodeClass(val))
@@ -43,9 +44,12 @@ def pacman_game(c):
         level1.append(NodeClass(None, [left_child, right_child]))
     tree_root= NodeClass(None,level1)
 
-    val_wo_magic=alpha_beta(tree_root,3,-math.inf,math.inf,True)
+    val_wo_magic=ab_Game_algo(tree_root,3,-math.inf,math.inf,True)
+    #brings out the subtree max
     LsubMax= max(given_values[:4])-c
     RsubMax=max(given_values[4:])-c
+
+    #decide pacman moves
     if LsubMax>val_wo_magic and LsubMax-val_wo_magic>=RsubMax-val_wo_magic :
 
         print(f"The new minimax value is {LsubMax}. Pacman goes left and uses dark magic")
